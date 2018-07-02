@@ -1,0 +1,2 @@
+module BenefitCategoriesHelper
+end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @benefit_category.name %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @benefit_category.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @benefit_category.to %>
+</p>
+
+<%= link_to 'Edit', edit_benefit_category_path(@benefit_category) %> |
+<%= link_to 'Back', benefit_categories_path %>

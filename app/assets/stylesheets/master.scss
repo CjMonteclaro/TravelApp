@@ -1,0 +1,41 @@
+@import "bootstrap";
+
+@font-face {
+  font-family: "Roboto";
+  src: url(/assets/Roboto-Light.ttf) format("truetype");
+}
+
+body {
+  font-family: "Roboto" !important;
+  font-size: 0.85rem !important;
+}
+
+nav {
+   margin-bottom: 20px;
+ }
+
+ .container, .page-title {
+   margin-bottom: 20px;
+ }
+
+ table h6 {
+   font-weight: bold;
+   margin-bottom: 0;
+ }
+
+ table p {
+   margin-bottom: 0;
+ }
+
+ thead {
+   font-size: 1rem !important;
+ }
+
+ #fgen_logo {
+   width: 100px;
+   margin-bottom: 2rem;
+ }
+
+ #ibero_logo {
+   width: 100%;
+ }

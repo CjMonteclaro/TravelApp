@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Travel Periods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Days</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travel_periods.each do |travel_period| %>
+      <tr>
+        <td><%= travel_period.days %></td>
+        <td><%= link_to 'Show', travel_period %></td>
+        <td><%= link_to 'Edit', edit_travel_period_path(travel_period) %></td>
+        <td><%= link_to 'Destroy', travel_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Travel Period', new_travel_period_path %>

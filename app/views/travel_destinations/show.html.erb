@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @travel_destination.quote %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @travel_destination.country %>
+</p>
+
+<p>
+  <strong>Policy:</strong>
+  <%= @travel_destination.policy_id %>
+</p>
+
+<%= link_to 'Edit', edit_travel_destination_path(@travel_destination) %> |
+<%= link_to 'Back', travel_destinations_path %>

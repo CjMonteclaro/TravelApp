@@ -1,0 +1,2 @@
+class TravelPeriod < ApplicationRecord
+end

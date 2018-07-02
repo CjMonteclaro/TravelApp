@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg py-4">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <%= link_to image_tag('fgen_logo.png', id: "fgen_logo", class: "#{params[:controller]} ml-3 mr-3"), "http://fgeninsurance.com", target: :_blank %>
+  <%# link_to "FGen Travel Insurance", root_path, class:'navbar-brand' %>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+    <%# nav_link('FGen Home', "http://fgeninsurance.com") %>
+    <%# nav_link('Travel Home', pages_home_path) %>
+    <%# nav_link('Packages', pages_packages_path) %>
+    <%= nav_link('Your Quotations', quotes_path) %>
+    <%= nav_link('Your Policies', policies_path, 'mr-5') %>
+
+    <% if current_user && current_user.has_role?(:superadmin) %>
+      <li class="nav-item dropdown mr-5">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu mr-2" aria-labelledby="navbarDropdownMenuLink">
+          <%= drop_link('Premium Table', travel_prems_path) %>
+          <%= drop_link('Benefits', benefits_path) %>
+          <%= drop_link('Countries', countries_path) %>
+          <%= drop_link('Users', users_path) %>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    <% end %>
+
+
+    <% if user_signed_in? %>
+      <%= content_tag :li, link_to("Hello, #{current_user.username}!", edit_user_path(current_user), class: 'nav-link'), class: 'nav-item' %>
+      <%= content_tag :li, class: 'nav-item' do %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      <% end %>
+    <% else %>
+      <%= content_tag :li, link_to("Sign up", new_user_path, class: 'nav-link'), class: 'nav-item' %>
+      <%= content_tag :li, link_to("Login", new_user_session_path, class: 'nav-link'), class: 'nav-item' %>
+    <% end %>
+  </ul>
+  </div>
+
+</nav>

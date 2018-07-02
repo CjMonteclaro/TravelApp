@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination class:</strong>
+  <%= @travel_prem.destination_class %>
+</p>
+
+<p>
+  <strong>Travel period:</strong>
+  <%= @travel_prem.travel_period %>
+</p>
+
+<p>
+  <strong>Premium:</strong>
+  <%= @travel_prem.premium %>
+</p>
+
+<p>
+  <strong>Prem type:</strong>
+  <%= @travel_prem.prem_type %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @travel_prem.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @travel_prem.to %>
+</p>
+
+<%= link_to 'Edit', edit_travel_prem_path(@travel_prem) %> |
+<%= link_to 'Back', travel_prems_path %>

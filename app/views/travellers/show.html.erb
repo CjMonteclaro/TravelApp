@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @traveller.quote %>
+</p>
+
+<p>
+  <strong>Policy:</strong>
+  <%= @traveller.policy %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @traveller.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @traveller.last_name %>
+</p>
+
+<p>
+  <strong>Birthdate:</strong>
+  <%= @traveller.birthdate %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @traveller.age %>
+</p>
+
+<p>
+  <strong>Beneficiary:</strong>
+  <%= @traveller.beneficiary %>
+</p>
+
+<p>
+  <strong>Travel prem:</strong>
+  <%= @traveller.travel_prem %>
+</p>
+
+<p>
+  <strong>Base prem:</strong>
+  <%= @traveller.base_prem %>
+</p>
+
+<p>
+  <strong>Total charges:</strong>
+  <%= @traveller.total_charges %>
+</p>
+
+<p>
+  <strong>Gross prem:</strong>
+  <%= @traveller.gross_prem %>
+</p>
+
+<%= link_to 'Edit', edit_traveller_path(@traveller) %> |
+<%= link_to 'Back', travellers_path %>

@@ -1,0 +1,2 @@
+module DestinationClassesHelper
+end

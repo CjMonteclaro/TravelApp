@@ -1,0 +1,14 @@
+<% title 'Quote Summary' %>
+
+
+<div class="row">
+  <div class="col-sm-7">
+    <%= render 'quote_summary' %>
+    <%= render 'quote_benefits' %>
+  </div>
+
+  <div class="col-sm-5">
+    <%= render 'quote_policies' if @quote.travellers.present? %>
+    <%= render 'quote_pricing' %>
+  </div>
+</div>

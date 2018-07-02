@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Destination Classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @destination_classes.each do |destination_class| %>
+      <tr>
+        <td><%= destination_class.name %></td>
+        <td><%= link_to 'Show', destination_class %></td>
+        <td><%= link_to 'Edit', edit_destination_class_path(destination_class) %></td>
+        <td><%= link_to 'Destroy', destination_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Destination Class', new_destination_class_path %>

@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@policy) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :quote %>
+    <%= f.association :traveller %>
+    <%= f.input :payment_via %>
+    <%= f.input :online_policy_no %>
+    <%= f.input :genweb_policy_id %>
+    <%= f.input :genweb_policy_no %>
+    <%= f.input :genweb_bill_no %>
+    <%= f.input :genweb_receipt_no %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination class:</strong>
+  <%= @benefit_limit.destination_class %>
+</p>
+
+<p>
+  <strong>Benefit category:</strong>
+  <%= @benefit_limit.benefit_category %>
+</p>
+
+<p>
+  <strong>Benefit:</strong>
+  <%= @benefit_limit.benefit %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @benefit_limit.currency %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @benefit_limit.limit %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @benefit_limit.remarks %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @benefit_limit.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @benefit_limit.to %>
+</p>
+
+<%= link_to 'Edit', edit_benefit_limit_path(@benefit_limit) %> |
+<%= link_to 'Back', benefit_limits_path %>

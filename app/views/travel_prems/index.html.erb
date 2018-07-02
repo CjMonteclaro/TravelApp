@@ -1,0 +1,37 @@
+<h1>Travel Prems</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Destination class</th>
+      <th>Travel period</th>
+      <th>Premium</th>
+      <th>Prem type</th>
+      <th>From</th>
+      <th>To</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travel_prems.each do |travel_prem| %>
+      <tr>
+        <td><%= travel_prem.id %></td>
+        <td><%= travel_prem.destination_class %></td>
+        <td><%= travel_prem.travel_period.days %></td>
+        <td class="text-right"><%= format_currency(travel_prem.premium) %></td>
+        <td><%= travel_prem.prem_type %></td>
+        <td><%= travel_prem.from %></td>
+        <td><%= travel_prem.to %></td>
+        <td><%= link_to 'Show', travel_prem %></td>
+        <td><%= link_to 'Edit', edit_travel_prem_path(travel_prem) %></td>
+        <td><%= link_to 'Destroy', travel_prem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Travel Prem', new_travel_prem_path %>

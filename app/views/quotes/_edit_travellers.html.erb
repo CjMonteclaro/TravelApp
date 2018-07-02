@@ -1,0 +1,11 @@
+<% if params[:action] == 'edit' %>
+  <div id="travellers">
+    <%= f.simple_fields_for :travellers do |traveller| %>
+      <%= render 'travellers/traveller_fields', f: traveller %>
+    <% end %>
+    <div class="links text-center">
+      <%= link_to_add_association "Add Travellers", f, :travellers, partial: 'travellers/traveller_fields', class: 'btn btn-info' %>
+    </div>
+  </div>
+  <hr>
+<% end %>

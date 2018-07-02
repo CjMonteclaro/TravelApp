@@ -1,0 +1,41 @@
+
+<%= simple_form_for(@traveller) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :quote %>
+    <%= f.association :policy %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :birthdate %>
+    <%= f.input :age %>
+    <%= f.input :beneficiary %>
+    <%= f.association :travel_prem %>
+    <%= f.input :base_prem %>
+    <%= f.input :total_charges %>
+    <%= f.input :gross_prem %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<% title 'Add Travellers' %>
+
+<%= simple_form_for @quote, url: add_travellers_path(id: @quote.id), method: 'post' do |q| %>
+  <%= q.error_notification %>
+
+  <div class="travellers">
+    <%= q.simple_fields_for :travellers do |builder| %>
+      <%= render 'traveller_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add Travellers", q, :travellers %>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to 'Back', @quote, class: 'btn' %>
+    <%= q.button :submit, 'Save and Continue', class: 'float-right btn-lg btn-success' %>
+  </div>
+<% end %>

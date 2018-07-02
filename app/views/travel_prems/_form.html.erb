@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@travel_prem) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :destination_class %>
+    <%= f.association :travel_period %>
+    <%= f.input :premium %>
+    <%= f.input :prem_type %>
+    <%= f.input :from %>
+    <%= f.input :to %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

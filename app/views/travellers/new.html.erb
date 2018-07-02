@@ -1,0 +1,19 @@
+<% title 'Add Travellers' %>
+
+<%= simple_form_for @quote, url: add_travellers_path(id: @quote.id), method: 'post' do |q| %>
+  <%= q.error_notification %>
+
+  <div id="travellers">
+    <%= q.simple_fields_for :travellers do |traveller| %>
+      <%= render 'traveller_fields', f: traveller %>
+    <% end %>
+    <div class="links float-left">
+      <%= link_to_add_association "Add Travellers", q, :travellers, class: 'btn btn-info' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to 'Back', @quote, class: 'btn' %>
+    <%= q.button :submit, 'Save and Continue', class: 'float-right btn-lg btn-success' %>
+  </div>
+<% end %>

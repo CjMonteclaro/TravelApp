@@ -1,0 +1,31 @@
+
+<%= simple_form_for(@quote) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-sm">
+      <%= f.association :countries, label: 'Which countries are you travelling to?', hint: 'Type the first letters of the countries to SEARCH; then SELECT from the dropdown menu.', input_html: { data: {placeholder: 'Choose your destination/s'}} %>
+      <%= f.input :travellers_count, label: 'How many travellers on the same flight?' %>
+    </div>
+
+    <div class="col-sm">
+      <%# f.input :start_date, label: 'Start Date', as: :string, input_html: {data: { provide: "datepicker" }} %>
+      <%= f.input :start_date, label: 'Start Date', order: [:day, :month, :year], start_year: Date.today.year, end_year: 1.year.from_now.year %>
+
+      <% if params[:action] == 'new' %>
+        <%= f.input :end_date, label: 'End Date', order: [:day, :month, :year], selected: 1.week.from_now, start_year: Date.today.year, end_year: 1.year.from_now.year %>
+      <% else %>
+        <%= f.input :end_date, label: 'End Date', order: [:day, :month, :year], start_year: Date.today.year, end_year: 1.year.from_now.year %>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+
+  <%# render 'edit_travellers' %>
+  
+  <div class="form-actions">
+    <%= link_to '<< Back', quotes_path, class: "btn btn-info" %>
+    <%= f.submit 'Get Quote!', class: "btn btn-success btn-lg float-right" %>
+  </div>
+<% end %>

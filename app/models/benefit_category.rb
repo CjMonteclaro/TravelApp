@@ -1,0 +1,2 @@
+class BenefitCategory < ApplicationRecord
+end

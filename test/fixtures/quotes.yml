@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  start_date: 2018-06-04
+  end_date: 2018-06-04
+  schengen_end_date: 2018-06-04
+  duration: 1
+  destination_class: one
+  traveller_type: one
+  travellers_count: 1
+  policies_count: 1
+  travel_prem: one
+  base_prem: 9.99
+  total_charges: 9.99
+  gross_prem: 9.99
+  policy_issued: 2018-06-04
+
+two:
+  user: two
+  start_date: 2018-06-04
+  end_date: 2018-06-04
+  schengen_end_date: 2018-06-04
+  duration: 1
+  destination_class: two
+  traveller_type: two
+  travellers_count: 1
+  policies_count: 1
+  travel_prem: two
+  base_prem: 9.99
+  total_charges: 9.99
+  gross_prem: 9.99
+  policy_issued: 2018-06-04

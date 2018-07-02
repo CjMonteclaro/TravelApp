@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quote: one
+  policy: one
+  first_name: MyString
+  last_name: MyString
+  birthdate: 2018-06-05
+  age: 1
+  beneficiary: MyString
+  travel_prem: one
+  base_prem: 9.99
+  total_charges: 9.99
+  gross_prem: 9.99
+
+two:
+  quote: two
+  policy: two
+  first_name: MyString
+  last_name: MyString
+  birthdate: 2018-06-05
+  age: 1
+  beneficiary: MyString
+  travel_prem: two
+  base_prem: 9.99
+  total_charges: 9.99
+  gross_prem: 9.99

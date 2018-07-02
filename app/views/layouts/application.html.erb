@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>
+      <%= content_for?(:title) ? "#{ yield(:title) } | FGen".html_safe : "FGen Travel Insurance" %>
+    </title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= yield(:head) %>
+
+  </head>
+
+  <body>
+
+    <%= render 'layouts/navbar' %>
+
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice.html_safe %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert.html_safe %></p>
+      <% end %>
+
+      <% if show_title? %>
+				<section class="page-title">
+					<%= content_tag :h1 do %>
+						<%= yield(:title) %>
+						<%= yield(:subtitle).html_safe %>
+					<% end %>
+				</section>
+			<% end %>
+
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

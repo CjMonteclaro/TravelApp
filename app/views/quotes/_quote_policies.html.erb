@@ -1,0 +1,28 @@
+<%= content_tag :h4, 'Travellers', class: 'text-muted' %>
+
+<table class="table">
+  <thead class="thead-light">
+    <%= content_tag :th, 'Traveller' %>
+    <%= content_tag :th, 'Policy Details' %>
+  </thead>
+
+  <tbody>
+    <% @quote.travellers.each do |traveller| %>
+      <tr>
+        <td>
+          <%= content_tag :strong, traveller.full_name %>
+          <%= content_tag :p, "#{format_date(traveller.birthdate)} (Age: #{traveller.age})" %>
+          <%= content_tag :p, "Beneficiary: #{traveller.beneficiary}" %>
+        </td>
+        <td>
+          <% if traveller.policy.present? %>
+            <%= content_tag :p, "Policy #: #{link_to(traveller.policy.online_policy_no, traveller.policy)}".html_safe %>
+          <% else %>
+            <%= content_tag :span, "Preparing your policy.<br> Please proceed to payment.".html_safe, class: 'alert-warning' %>
+          <% end %>
+          <%= content_tag :p, "Premium: #{format_currency(traveller.gross_prem)}", class: 'lead' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

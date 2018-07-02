@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  shortname: MyString
+  shortname2: MyString
+  capital: MyString
+  region: MyString
+  subregion: MyString
+  destination_class: one
+
+two:
+  name: MyString
+  shortname: MyString
+  shortname2: MyString
+  capital: MyString
+  region: MyString
+  subregion: MyString
+  destination_class: two

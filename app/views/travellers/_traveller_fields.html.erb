@@ -1,0 +1,20 @@
+<div class="traveller-fields nested-fields">
+  <legend>
+    <%= content_tag :span, "Traveller #" %>
+    <%= content_tag :span, "", class: 'traveller-no' %>
+    <%= link_to_remove_association "(remove)", f %>
+  </legend>
+
+
+
+  <div class="row">
+    <%= f.input :first_name, wrapper_html: { class: 'col-sm-4' } %>
+    <%= f.input :last_name, wrapper_html: { class: 'col-sm-4' } %>
+    <%= f.input :birthdate, start_year: Date.today.year, end_year: Date.today.year - 70, order: [:day, :month, :year], wrapper_html: { class: 'col-sm-4' } %>
+  </div>
+
+  <div class="row">
+    <%= f.input :beneficiary, label: 'Name of Beneficiary', wrapper_html: { class: 'col-sm-8' } %>
+  </div>
+  <hr>
+</div>

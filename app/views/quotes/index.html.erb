@@ -1,0 +1,55 @@
+<% title "Travel Insurance Quotes: All" %>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Travel Dates</th>
+      <th>Detination/s</th>
+      <th>Travellers</th>
+      <th>Base Premium</th>
+      <th>Total Taxes</th>
+      <th>Gross Premium</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quotes.each do |quote| %>
+      <tr>
+        <td>
+          <%= content_tag :span, "#{format_date quote.start_date} to" %>
+          <%= content_tag :span, " #{format_date quote.end_date}" %>
+          <%= content_tag :p, pluralize(quote.duration, 'day'), class: 'bg-info text-white p-1' %>
+        </td>
+        <td>
+          <% quote.countries.each do |country| %>
+            <%= content_tag :span, country %><br>
+          <% end %>
+          <%= content_tag :p, "(Class: #{quote.destination_class})" %>
+        </td>
+        <td>
+          <%= content_tag :p, quote.travellers_count %>
+          <%= quote.policies_count.present? ? 'Yes' : 'No' %>
+        </td>
+        <td>
+          <%= format_currency quote.base_prem %>
+          <%= content_tag :p, "(Band: #{quote.travel_prem_id})" %>
+        </td>
+        <td><%= format_currency quote.total_charges %></td>
+        <td><%= format_currency quote.gross_prem %></td>
+        <td><%= link_to 'Show', quote %></td>
+        <%# if can? :manage, :all %>
+        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+        <td><%= link_to 'Delete', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="text-center">
+  <%= link_to 'Create New Quote', new_quote_path, class: 'btn btn-info btn-lg' %>
+</div>

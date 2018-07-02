@@ -1,0 +1,54 @@
+<h4>
+  <%= content_tag :span, 'Your Trip', class: 'text-muted' %>
+  <%= link_to(' (edit)', edit_quote_path(@quote))  %>
+</h4>
+
+<table class="table mb-5">
+  <thead class="thead-light">
+    <%= content_tag :th, 'Origin' %>
+    <%= content_tag :th, 'Destination/s' %>
+    <%= content_tag :th, 'Travel Dates' %>
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <%= content_tag :td do %>
+        <%= content_tag :p, 'Philippines' %>
+      <% end %>
+
+      <%= content_tag :td do %>
+        <% @quote.countries.each do |country| %>
+          <%= content_tag :p, country %>
+        <% end %>
+        (<strong>Class:</strong>
+        <%= @quote.destination_class %>)
+      <% end %>
+
+      <%= content_tag :td do %>
+        <%= content_tag :p, "Fr: #{format_date(@quote.start_date)}" %>
+
+        <% if @quote.destination_class == 2 %>
+          <%= content_tag :p, "To: #{format_date(@quote.schengen_end_date )}" %>
+        <% else %>
+          <%= content_tag :p, "To: #{format_date(@quote.end_date)}" %>
+        <% end %>
+
+        <%= content_tag :p, "(#{content_tag :strong, 'Duration: '} #{pluralize(@quote.duration, 'day')})".html_safe %>
+      <% end %>
+    </tr>
+
+    <% if @quote.destination_class_id == 2 #'Schengen' %>
+      <tr>
+        <td colspan="3" class="p-3 alert-warning">
+          <%= content_tag :strong, "Note :" %>
+          <%= content_tag :i, "We automatically added 15 days to your trip duration. This is a requirement by the Schengen embassies to process your visa." %>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<%= content_tag :div, class: 'text-center' do %>
+<% end %>

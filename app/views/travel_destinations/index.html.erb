@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Travel Destinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quote</th>
+      <th>Country</th>
+      <th>Policy</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travel_destinations.each do |travel_destination| %>
+      <tr>
+        <td><%= travel_destination.quote %></td>
+        <td><%= travel_destination.country %></td>
+        <td><%= travel_destination.policy_id %></td>
+        <td><%= link_to 'Show', travel_destination %></td>
+        <td><%= link_to 'Edit', edit_travel_destination_path(travel_destination) %></td>
+        <td><%= link_to 'Destroy', travel_destination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Travel Destination', new_travel_destination_path %>

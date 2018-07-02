@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  quote: one
+  traveller: one
+  payment_via: MyString
+  online_policy_no: MyString
+  genweb_policy_id: 1
+  genweb_policy_no: MyString
+  genweb_bill_no: 1
+  genweb_receipt_no: MyString
+
+two:
+  user: two
+  quote: two
+  traveller: two
+  payment_via: MyString
+  online_policy_no: MyString
+  genweb_policy_id: 1
+  genweb_policy_no: MyString
+  genweb_bill_no: 1
+  genweb_receipt_no: MyString

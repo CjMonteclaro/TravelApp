@@ -1,0 +1,11 @@
+.travellers {
+  reset-counter: idx;
+}
+
+.nested-fields {
+  counter-increment: idx;
+}
+
+.traveller-no:after {
+  content: counter(idx);
+}

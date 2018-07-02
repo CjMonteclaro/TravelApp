@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quote: one
+  country: one
+  policy_id: 1
+
+two:
+  quote: two
+  country: two
+  policy_id: 1

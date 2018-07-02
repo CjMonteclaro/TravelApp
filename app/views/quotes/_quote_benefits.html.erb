@@ -1,0 +1,36 @@
+<%= content_tag :h4, "Your Benefits", class: 'text-muted' %>
+
+<table class="table table-hover">
+<thead class="thead-light">
+<%= content_tag :th, 'Benefit' %>
+<%= content_tag :th, "Coverage: #{@quote.destination_class.name.upcase}", class: 'text-center' %>
+</thead>
+<tbody>
+<tr class="bg-warning">
+  <%= content_tag :td, (content_tag :h6, "PERSONAL ACCIDENT"), colspan: 2 %>
+</tr>
+
+<tr>
+  <%= content_tag :td, "Accidental Death" %>
+  <%= content_tag :td, "PHP 1,000,000.00", class: 'lead text-center' %>
+</tr>
+
+<% @benefit_limits.group_by(&:benefit_category).each do |category, benefit_limits| %>
+
+  <tr class="bg-warning">
+    <%= content_tag :td, (content_tag :h6, category.name.upcase), colspan: 2 %>
+  </tr>
+
+  <% benefit_limits.each do |benefit_limit| %>
+    <tr>
+      <%= content_tag :td, benefit_limit.benefit.name.html_safe %>
+      <%= content_tag :td, class: "text-center #{'lead text-white bg-success' if benefit_limit.benefit_id == 1}" do %>
+        <%= "#{benefit_limit.currency} #{format_currency(benefit_limit.limit)}" if benefit_limit.limit %>
+        <%= content_tag :p, benefit_limit.remarks  %>
+      <% end %>
+    </tr>
+  <% end %>
+
+<% end %>
+</tbody>
+</table>

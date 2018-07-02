@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+
+<p>
+  <strong>Shortname:</strong>
+  <%= @country.shortname %>
+</p>
+
+<p>
+  <strong>Shortname2:</strong>
+  <%= @country.shortname2 %>
+</p>
+
+<p>
+  <strong>Capital:</strong>
+  <%= @country.capital %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @country.region %>
+</p>
+
+<p>
+  <strong>Subregion:</strong>
+  <%= @country.subregion %>
+</p>
+
+<p>
+  <strong>Destination class:</strong>
+  <%= @country.destination_class %>
+</p>
+
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<%= link_to 'Back', countries_path %>

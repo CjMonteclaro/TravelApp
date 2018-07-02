@@ -1,0 +1,54 @@
+<div class="float-right">
+  <%= link_to 'Edit', edit_policy_path(@policy) %> |
+  <%= link_to 'Back', policies_path %>
+</div>
+
+<table class="table">
+  <tr>
+    <td><%= content_tag :h4, 'Online Policy No.' %></td>
+    <td><%= content_tag :h4, @policy.online_policy_no %></td>
+  </tr>
+  <tr>
+    <td>Insured</td>
+    <td>
+      <%= content_tag :h4, @policy.traveller.full_name, class: 'text-success' %>
+      <%= "DOB: #{format_date(@policy.traveller.birthdate)}" %>
+    </td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><%=  %></td>
+  </tr>
+  <tr>
+    <td>Period Covered</td>
+    <td>
+      <%= content_tag :strong, "#{format_date(@quote.start_date)} to #{format_date(@quote.end_date)}" %>
+      <p>
+        <%= content_tag :span, "Duration: #{pluralize @quote.duration, 'day'}" %> |
+        <%= content_tag :span, "Issued: #{format_date(@policy.created_at)}" %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>Destination/s</td>
+    <td>
+      <%= content_tag :strong, @quote.countries.map(&:name).to_sentence %>
+      <%# content_tag :p, "Class: #{@quote.destination_class}, excluding travel within the Philippines" %>
+    </td>
+  </tr>
+  <tr>
+    <td>Base Premium</td>
+    <td><%= format_currency(@policy.traveller.base_prem) %></td>
+  </tr>
+  <tr>
+    <td>Taxes</td>
+    <td><%= format_currency(@policy.traveller.total_charges) %></td>
+  </tr>
+  <tr>
+    <td>Total Premium</td>
+    <td>
+      <%= content_tag :h4, format_currency(@policy.traveller.gross_prem, 'PHP ') %>
+      <%= "Paid Via: #{@policy.payment_via}" %>
+    </td>
+  </tr>
+</table>

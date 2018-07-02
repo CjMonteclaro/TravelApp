@@ -1,0 +1,42 @@
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <legend>Login Credentials</legend>
+      <%= f.input :username %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :email_opt_in, label: "Privacy Consent" %>
+      <% if can? :manage, :all %>
+        <%= f.input :enabled %>
+        <%= f.input :tos_agreed %>
+        <%= f.input :policies_count %>
+        <%= f.association :roles, as: :check_boxes %>
+      <% end %>
+    </div>
+
+    <%= f.simple_fields_for :profile do |pr| %>
+    <div class="col-sm-4">
+      <legend>User Profile</legend>
+        <%= pr.input :first_name %>
+        <%= pr.input :last_name %>
+        <%= pr.input :birthdate, start_year: Date.today.year, end_year: Date.today.year - 70, order: [:day, :month, :year] %>
+    </div>
+
+    <div class="col-sm-4">
+      <legend>Contact Details</legend>
+      <%= pr.input :address1, label: 'Address Line 1' %>
+      <%= pr.input :address2, label: 'Address Line 2' %>
+      <%= pr.input :phone %>
+  </div>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

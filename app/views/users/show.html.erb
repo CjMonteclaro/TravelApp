@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @user.enabled %>
+</p>
+
+<p>
+  <strong>Opt in:</strong>
+  <%= @user.email_opt_in %>
+</p>
+
+<p>
+  <strong>Tos agreed:</strong>
+  <%= @user.tos_agreed %>
+</p>
+
+<p>
+  <strong>Policies count:</strong>
+  <%= @user.policies_count %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

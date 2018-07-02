@@ -1,0 +1,63 @@
+<% if current_user.has_role? :superadmin %>
+  <% title 'Travel Insurance Policies: All' %>
+<% else %>
+  <% title "#{current_user.username.upcase}'s Travel Policies" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Online Policy ID</th>
+      <th>Traveller</th>
+      <th>Destination/s</th>
+      <th>Payment Via</th>
+      <th>Date Paid</th>
+      <th>Claims</th>
+
+      <% if can? :manage, @policies %>
+        <th>Genweb Conversion</th>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @policies.each do |policy| %>
+      <tr>
+        <td><%= policy.user.username if policy.user %></td>
+        <td><%= link_to(policy.online_policy_no, policy) %></td>
+        <td><%= policy.traveller.full_name if policy.traveller %></td>
+        <td>
+          <%= content_tag :p, policy.quote.countries.map(&:name).to_sentence %>
+          <%= link_to(policy.quote.id, policy.quote) if can? :manage, @policies %>
+        </td>
+        <td><%= policy.payment_via %></td>
+        <td><%= policy.created_at %></td>
+        <td></td>
+
+        <% if can? :manage, policy %>
+          <td>
+            <%= policy.genweb_policy_id %>
+            <%= policy.genweb_policy_no %>
+            <%= policy.genweb_bill_no %>
+            <%= policy.genweb_receipt_no %>
+          </td>
+          <td><%= link_to 'Edit', edit_policy_path(policy) %></td>
+          <td><%= link_to 'Delete', policy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="text-center">
+  <% if current_user.has_role? :superadmin %>
+    <%= link_to 'Create New Quote', new_quote_path, class: 'btn btn-info btn-lg' %>
+    <%= link_to 'New Policy', new_policy_path %>
+  <% else %>
+    <%= link_to 'Create New Quote', new_quote_path, class: 'btn btn-info btn-lg' %>
+  <% end %>
+</div>

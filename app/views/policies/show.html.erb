@@ -1,0 +1,14 @@
+<%= content_tag :h1, "Certificate of Insurance", class: 'mb-5' %>
+
+<div class="row">
+  <div class="col-sm-8">
+    <%= render 'policy_summary' %>
+    <%= render 'quotes/quote_benefits' %>
+  </div>
+
+  <div class="col-sm-4">
+    <%= render 'ibero_details' %>
+    <hr>
+    <%= render 'disclaimer' %>
+  </div>
+</div>

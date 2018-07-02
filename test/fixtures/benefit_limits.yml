@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination_class: one
+  benefit_category: one
+  benefit: one
+  currency: MyString
+  limit: 9.99
+  remarks: MyString
+  from: 2018-06-04
+  to: 2018-06-04
+
+two:
+  destination_class: two
+  benefit_category: two
+  benefit: two
+  currency: MyString
+  limit: 9.99
+  remarks: MyString
+  from: 2018-06-04
+  to: 2018-06-04

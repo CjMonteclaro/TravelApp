@@ -1,0 +1,31 @@
+<h4 class="text-muted">
+  <%= content_tag :span, 'Premium ' %>
+  <%= content_tag :span, "(#{pluralize(@quote.travellers_count, 'traveller')})" %>
+  <%= content_tag :span, @quote.travel_prem_id, class: 'small text-muted float-right' %>
+</h4>
+
+<table class="table bg-light">
+<tbody>
+  <tr>
+    <td>
+      <strong class='lead'>Total Premium</strong>
+      (inclusive of taxes)
+      <h1 class="float-right text-success"><%= format_currency(@quote.gross_prem) %></h1>
+    </td>
+  </tr>
+  <tr class="text-center">
+    <td>
+      <% if @quote.travellers.present? && @quote.policies.blank? %>
+        <%# link_to('Pay with Paypal', checkout_from_paymnt_gateway_path(quote_id: @quote.id), class: 'btn btn-success') %>
+        <%= link_to('Pay with Paymaya',  paymaya_checkout_quote_path(@quote), class: 'btn btn-success') %>
+      <% elsif @quote.travellers.blank? %>
+        <%= content_tag :span, 'Looks good!', class: 'p-2 mr-2 text-success bg-white' %>
+        <%= link_to('Buy Now!', new_traveller_path(id: @quote), class: 'btn btn-lg btn-success') %>
+      <% else %>
+        Thank you for your purchase!
+      <% end %>
+      <%# request.protocol + request.host_with_port + quote_path(@quote) %>
+    </td>
+  </tr>
+</tbody>
+</table>
